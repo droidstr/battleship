@@ -165,7 +165,7 @@ class Player:
         while True:
             try:
                 dot = self.ask()
-            except:
+            except Exception:
                 print('Некорректный ввод, введите 2 числа от 1 до 6')
                 continue
             try:
@@ -182,6 +182,8 @@ class User(Player):
     
     def ask(self):
         turn_input = input('Введите номер строки и столбца через пробел ').split()
+        if turn_input[0].lower() == 'exit':
+            raise KeyboardInterrupt
         if len(turn_input) != 2:
             raise ValueError
         return Dot(int(turn_input[1]), int(turn_input[0]))
