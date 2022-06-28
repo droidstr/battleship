@@ -283,7 +283,8 @@ class Game:
                     print(' !!! Убит !!!')
                     continue
                 except GameOverException:
-                    print(current_player.win)
+                    self.print_boards()
+                    input(current_player.win)
                     return None
                 break
             turn += 1
